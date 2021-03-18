@@ -27,25 +27,22 @@ def main():
     form = CharCounter()
     if form.validate_on_submit():
         word = form.word.data.lower()
-        res = collections.Counter(word).most_common(2)
-        try:
-            for i in enumerate(word[::-1]):
-                if i[1] == res[0][0]:
-                    index1 = i[0]
+        res = collections.Counter(word).most_common()
+        maximum = res[0][1]
+        res = [i for i in res if i[1] == maximum]
+        indexes = []
+        rev = word[::-1]
+        for i in res:
+            for j in enumerate(rev):
+                if i[0] == j[1]:
+                    indexes.append(j[0])
                     break
-            for i in enumerate(word[::-1]):
-                if i[1] == res[1][0]:
-                    index2 = i[0]
-                    break
-            if res[0][1] == res[1][1]:
-                if index1 < index2:
-                    res = res[0]
-                else:
-                    res = res[1]
-            else:
-                res = res[0]
-        except IndexError:
-            res = res[0]
+        minimum_char = rev[min(indexes)]
+        count = 0
+        for i in word:
+            if i == minimum_char:
+                count += 1
+        res = tuple([minimum_char, count])
         new_data = Data(
             word=form.word.data,
             output_char=res[0],

@@ -9,21 +9,21 @@
    style="margin-left:18px">Home</a>
     {% for data in datas %}
         <div class="container">
-            <h5>
-                ID: {{data.id}}
+            <h5 style="background-color:#eeebdd">
+                <b>ID: {{data.id}}</b>
             </h5>
-            <p class="word">
-                Inputh: {{data.word}}
+            <p class="word" style="background-color: ">
+                <span style="background-color: #eeebdd">Input:</span> <b>{{data.word}}</b>
             </p>
             <p class="output">
                 {% if data.count == '1' %}
-                    Outputh: <b style="color:red">There is no repeating chars</b>
+                <span style="background-color: #eeebdd">Output:</span> <b style="color:red">There is no repeating chars</b>
                 {% else %}
-                    Outputh: <b style="color:red">{{ data.output_char.upper() }}</b> is repeating <b style="color:red">{{ data.count }}</b> times
+                <span style="background-color: #eeebdd">Output:</span> <b style="color:red">{{ data.output_char.upper() }}</b> is repeating <b style="color:red">{{ data.count }}</b> times
                 {% endif %}
             </p>
             <p class="time">
-                Time: {{data.time}}
+                <span style="background-color: #eeebdd">Time:</span> {{data.time}}
             </p>
         </div>
 <hr>
