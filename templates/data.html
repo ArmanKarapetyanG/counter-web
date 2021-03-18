@@ -1,0 +1,31 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} Data {% endblock %}
+
+
+{% block content %}
+<a href="{{ url_for('main')}}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true"
+   style="margin-left:18px">Home</a>
+    {% for data in datas %}
+        <div class="container">
+            <h5>
+                ID: {{data.id}}
+            </h5>
+            <p class="word">
+                Inputh: {{data.word}}
+            </p>
+            <p class="output">
+                {% if data.count == '1' %}
+                    Outputh: <b style="color:red">There is no repeating chars</b>
+                {% else %}
+                    Outputh: <b style="color:red">{{ data.output_char.upper() }}</b> is repeating <b style="color:red">{{ data.count }}</b> times
+                {% endif %}
+            </p>
+            <p class="time">
+                Time: {{data.time}}
+            </p>
+        </div>
+<hr>
+        {% endfor %}
+{% endblock %}

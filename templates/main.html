@@ -1,0 +1,25 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %} Main {% endblock %}
+
+
+{% block content %}
+<h1>Welcome! this program will find duplicated chars for you!</h1>
+<h2>Have fun with it</h2>
+<hr>
+    <div class="col-lg-8 col-md-10 mx-auto">
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+    </div>
+
+<a href="{{ url_for('data')}} " class="btn btn-primary btn-sm active" role="button" aria-pressed="true" style="margin:25px">History</a>
+<h4 style="color:red; margin:auto; padding-top:50px">If more than one character has the same number of duplicate values, we will return the second one</h4>
+<hr>
+<h4 style="color:red; margin:auto;">If there is no duplicated chars, we'll return... Try it see it by yourself 🔥🔥🔥</h4>
+{% endblock %}
+
+
+
+
+<!--app was built by Arman Karpetyan (armanslaptop@gmail.com)-->
