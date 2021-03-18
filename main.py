@@ -50,7 +50,7 @@ def main():
             word=form.word.data,
             output_char=res[0],
             count=res[1],
-            time=datetime.now().strftime('%m/%D/%Y (%X)')
+            time=datetime.now().strftime('%D (%X)')
         )
         db.session.add(new_data)
         db.session.commit()
